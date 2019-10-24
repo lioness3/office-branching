@@ -1,16 +1,19 @@
 $(document).ready(function() {
 
- var advice = $('#advice:checked').val();
- var rules = $('#rules:checked').val();
- var offended = $('#offended:checked').val();
- var wellmeaning = $('#wellmeaning:checked').val();
- var offensive = $('#offensive:checked').val();
- var lazy = $('#lazy:checked').val();
-var unorganized = $('#unorganized:checked').val();
+
+$("#checkbox").submit(function(event) {
+
+
+ var advice = $('#advice[type=checkbox]').prop('checked');
+ var rules = $('#rules[type=checkbox]').prop('checked');
+ var wellmeaning = $('#wellmeaning[type=checkbox]').prop('checked');
+ var offensive = $('#offensive[type=checkbox]').prop('checked');
+ var lazy = $('#lazy[type=checkbox]').prop('checked');
+ var unorganized = $('#unorganized[type=checkbox]').prop('checked');
 
   if (advice) {
     $(".dwight").show();
-  } else if (rules && offended) {
+  } else if (rules && offensive) {
     $(".angela").show();
   } else if (wellmeaning && rules) {
     $(".pam").show();
@@ -21,9 +24,8 @@ var unorganized = $('#unorganized:checked').val();
   } else {
     alert("I told you to choose two!")
   };
-
-
-
+  event.preventDefault();
+});
 
 
 
